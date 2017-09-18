@@ -60,5 +60,7 @@ fs.readFile('config.json', function (error, data) {
 }
 copy(directory, txtDir);
 
+fs.watch(txtDir,(eventType, filename) => {
+    if (filename) { console.log(filename.toString()); }})
 
 
