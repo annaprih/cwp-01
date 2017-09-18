@@ -16,6 +16,14 @@ function read(dir){
      });}
 
 read(directory); 
-
-
+function create(dir){
+        const newDir = dir + '\\' + path.basename(dir);
+        fs.mkdir(newDir, function (error) {
+        if (error) {
+            console.error('Ошибка создания файла');
+        }
+    });
+return newDir;
+};
+const txtDir = create(directory);
 
