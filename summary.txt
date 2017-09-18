@@ -1,3 +1,21 @@
+const directory = 'flag' 
+const fs = require('fs');
+const path = require('path');
+function read(dir){
+     fs.readdir(dir, function(error, files){
+         files.forEach(function(file){ 
+        fs.stat(dir + '/' +  file, function(error, state){
+           if(state.isDirectory()){
+             direct = dir + '/' + file;
+             read(direct);
+            } else {
+              console.log(path.relative(directory, dir +'/'+ file));
+            } 
+         });
+         });
+     });}
+
+read(directory); 
 
 
 
